@@ -1,0 +1,23 @@
+@charset "utf- 8";
+:root {
+  /* 색상  */
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --sub-color: #f8afed;
+
+  /* button 색상*/
+  --button-primary-color: #93d2ff;
+  --button-hover-color: #1f771e;
+  --button-active-color: #e7783c;
+  /* 버튼 padding */
+  --button-padding-l: 10px 20px;
+  --button-padding-m: 8px 16px;
+  --button-padding-s: 6px 12px;
+  /* 글자 색상 */
+  --text-color-light: #2c3e50;
+  --text-color-dark: #ffffff;
+  /* 간격 */
+  --spacing-large: 32px;
+  --spacing-medium: 16px;
+  --spacing-small: 8px;
+}

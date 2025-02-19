@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* button */
+.button {
+  background-color: var(--button-primary);
+  color: var(--button-text-color);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-large);
+  padding: 14px 28px;
+  transition: background 0.3s ease;
+}
+.button:hover {
+  background-color: var(--button-hover);
+}
+.button:active {
+  background-color: var(--button-active);
+}
+.button.dark{
+    background-color: var(--button-primary-dark);
+}
+
+/* input */
+.input {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  padding: var(--input-padding);
+  font-size: var(--input-font-size);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: var(--input-padding);
+}
+
+/* 입력 필드 포커스 상태 */
+.input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--box-shadow);
+}
+/* 상품 */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-medium);
+  padding: var(--spacing-large);
+}
+.product-item {
+  background-color: var(--background-color-light);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+.product-item h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacing-small);
+}
+
+.product-item p {
+  font-size: var(--font-size-base);
+}

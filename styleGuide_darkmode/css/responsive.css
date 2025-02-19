@@ -1,0 +1,18 @@
+@charset "utf-8";
+@media screen and (max-width:768px) {
+    .button{
+        font-size: var(--font-size-base);
+    }
+    .input{
+        font-size: var(--font-size-small);
+    }
+}
+@media screen and (max-width:390px) {
+    .button{
+        font-size: var(--font-size-small);
+        padding: var(--spacing-small);
+    }
+    .input{
+        padding: var(--spacing-small);
+    }
+}

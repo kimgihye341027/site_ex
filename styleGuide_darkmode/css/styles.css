@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* 기본스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: var(--font-family);
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    text-align: center;
+  }
+  body.dark{
+    background-color: var(--background-color-dark);
+  }
+  header{
+    background-color: var(--primary-color);
+    padding: var(--spacing-small);
+    color: #fff;
+  }
+  h1{
+    font-size: var(--font-size-large);
+  }
+  footer{
+    padding: var(--spacing-medium);
+    background-color: var(--primary-color);
+  }
+  footer.dark{
+    background-color: var(--background-color-dark);
+}

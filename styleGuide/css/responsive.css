@@ -1,0 +1,12 @@
+@media all and (max-width: 768px) {
+  .button {
+    padding: var(--button-padding-m);
+    margin-right: var(--spacing-medium);
+  }
+}
+@media all and (max-width: 390px) {
+  .button {
+    padding: var(--button-padding-s);
+    margin-right: var(--spacing-small);
+  }
+}

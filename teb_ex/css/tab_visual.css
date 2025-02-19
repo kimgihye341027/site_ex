@@ -1,0 +1,93 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+/* =====inner===== */
+.inner {
+  width: 100%;
+  max-width: 960px;
+  line-height: 70px;
+  margin: auto;
+}
+/* =====hedaer===== */
+.header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 로고 */
+.header .inner h1 {
+  text-align: center;
+  width: 20%;
+}
+/* 메뉴 */
+.tab-nav {
+  display: flex;
+  width: 70%;
+  text-align: center;
+}
+.tab-nav li {
+  width: calc(100% / 5);
+}
+.tab-nav li:hover {
+}
+.tab-nav li a:hover,
+.tab-nav li a.active {
+  background-color: cadetblue;
+  color: #fff;
+}
+.tab-nav li a {
+  display: block;
+  width: 100%;
+  background-color: rgb(153, 110, 56);
+}
+
+/* popup */
+.popup {
+  position: relative;
+  display: block;
+  background-color: antiquewhite;
+}
+.popup-btn {
+  position: absolute;
+  right: 50px;
+}
+.popup-btn a {
+  display: block;
+  text-align: center;
+  width: 80px;
+  font-size: 14px;
+  padding: 5px 12px;
+  background-color: rgb(180, 226, 255);
+}
+.popup-btn a::after {
+  content: "close";
+}
+.popup-btn a.actiev::after {
+  content: "open";
+}
+
+/* =====tab-item===== */
+.tabitem{
+  position: relative;
+}
+.content{
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.content .inner{
+  position: relative;
+  background-color: aqua;
+}
