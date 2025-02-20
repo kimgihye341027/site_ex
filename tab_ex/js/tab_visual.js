@@ -1,8 +1,8 @@
 window.addEventListener("load", function () {
-  const popupBtnLinks = this.document.querySelectorAll(".popup-btn .inner a");
-  const popupBtn = this.document.querySelector(".popup-btn");
-  const popupText = this.document.querySelector(".pop-text");
-  // popBtnLinks(버튼)클릭시 a변경 close->open
+  const popupBtnLinks = document.querySelectorAll(".popup-btn .inner a");
+  const popupBtn = document.querySelector(".popup-btn");
+  const popupText = document.querySelector(".pop-text");
+
   popupBtnLinks.forEach(function (item) {
     item.addEventListener("click", function (e) {
       e.preventDefault();
@@ -11,10 +11,11 @@ window.addEventListener("load", function () {
       });
     });
   });
-  // popBtnLinks(버튼)클릭시 popupText display none
+
   popupBtn.addEventListener("click", function () {
     popupText.style.display = popupText.style.display === "none" ? "block" : "none";
   });
+
   // 메뉴 탭 기능
   const tabTitle = document.querySelectorAll(".tab-nav li a");
   tabTitle.forEach(function (element) {

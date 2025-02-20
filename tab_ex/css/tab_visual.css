@@ -52,7 +52,7 @@ a {
   background-color: rgb(153, 110, 56);
 }
 .tab-nav li a.active::after {
-  background: url("../imges/sprites.png") no-repeat 0 0;
+  background: url("../images/sprites.png") no-repeat 0 0;
   content: "";
   position: absolute;
   top: 100%;

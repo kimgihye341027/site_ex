@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" 
+    integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>cookie 예제</title>
+    <style>
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+        #notice_wrap {
+          width: 300px;
+          position: absolute;
+          left: 30px;
+          top: 30px;
+          box-shadow: 0 0 8px #000;
+        }
+        #notice_wrap img {
+          width: 100%;
+        }
+        .closeWrap {
+          background-color: #000;
+          color: #fff;
+          text-align: right;
+          padding: 5px 10px;
+        }
+        .closeWrap button {
+          margin-left: 20px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+    <div id="notice_wrap">
+        <img src="img/modal_img.png" alt="사진1">
+        <p class="closeWrap">
+            <input type="checkbox" id="chk"/>
+            <label for="chk">3일 동안 이 창 열지 않기</label>
+            <button class="closeBtn">닫기X</button>
+        </p>
+    </div>
+    <script>
+        $(function(){
+            if($.cookie("popup") == "none"){
+                $("#notice_wrap").hide()
+            }
+            let chk = $("#chk") 
+            $(".closeBtn").on("click" , function(){
+                //3일동안 열리지 않기
+                // 만약에(chk.체크가 되었는지 안되었는지())
+                if(chk.is(":checked")){
+                    // popup이라는 이름의 쿠키를 설정
+                    // {expires : 3:하루이면 1로변경 , path:"/"}
+                    $.cookie("popup", "none" ,{expires : 3 , path:"/"})
+                }
+                $("#notice_wrap").fadeOut("fast")
+            })
+        })
+    </script>
+</body>
+</html>
