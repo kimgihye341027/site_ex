@@ -102,7 +102,22 @@
           tabs[activeIndex].classList.add("active");
         }
         document.getElementById(contentId).classList.add("active");
+        // 배경색변경
+        document.body.style.backgroundColor =
+          contentId === "drink"
+            ? "#e0f7fa"
+            : contentId === "bread"
+            ? "#fff3e0"
+            : contentId === "coffee"
+            ? "#f3e5f5"
+            : contentId === "iceCream"
+            ? "#ffebee"
+            : "#e8f5e9"; // 과일
       }
+      // 페이지 로딩 시 "drink" 탭 활성화
+      window.addEventListener("DOMContentLoaded" , ()=>{
+        showContent("bread")
+      })
     </script>
   </body>
 </html>
