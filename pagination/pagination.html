@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공지사항 게시판</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      .notice-board {
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+        /* background-color: bisque; */
+        border-collapse: collapse;
+      }
+      .notice-board th,
+      .notice-board td {
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      .pagination {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .pagination li {
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 1px solid #333;
+      }
+      .pagination li.active {
+        background-color: #333;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>공지사항</h1>
+    <table class="notice-board">
+      <thead>
+        <!-- tr 표 -->
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성일</th>
+        </tr>
+      </thead>
+      <tbody id="noticeList">
+        <!-- js -->
+        <!--  -->
+      </tbody>
+    </table>
+    <ul class="pagination" id="pagination">
+      <!-- js -->
+    </ul>
+    <script>
+        let notice = [];
+        //   console.log(notice);
+  
+        const itemsPerPage = 5;
+        let currentPage = 1;
+        //   json데이터 가져오기
+        async function fetchNotice() {
+          try {
+            const response = await fetch("notice.json");
+            //   console.log(response);
+            notice = await response.json();
+            // console.log(notice);
+            displayNotice();
+            displayPagination();
+          } catch (error) {
+            console.error("데이터를 불러오는 중 오류 발생", error);
+          }
+        }
+        //   공지사항 내용함수
+        function displayNotice() {
+          const noticeList = document.getElementById("noticeList");
+          noticeList.innerHTML = ``;
+          const start = (currentPage - 1) * itemsPerPage;
+          // console.log(start);
+          const pageNotices = notice.slice(start, start + itemsPerPage);
+          // console.log(pageNotice);
+          pageNotices.forEach((item, index) => {
+            //   console.log(item);
+            //   console.log(index);
+            const row = document.createElement("tr");
+            // console.log(row);
+            row.innerHTML = `
+          <td>${item.id}</td>
+          <td>${item.title}</td>
+          <td>${item.date}</td>
+          `;
+            noticeList.appendChild(row);
+          });
+        }
+        // 페이지네이션 함수
+        function displayPagination() {
+          const pagination = document.getElementById("pagination");
+          pagination.innerHTML = "";
+          // 페이지네이션 총 갯수
+          const totalPages = Math.ceil(notice.length / itemsPerPage);
+          // console.log(totalPages);
+          // 이전버튼
+          const prev = document.createElement("li");
+          prev.textContent = "이전";
+          prev.addEventListener("click", () => {
+            if (currentPage > 1) {
+              currentPage--;
+              updateUI();
+            }
+          });
+          pagination.appendChild(prev);
+          // 페이지 총갯수
+          for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            // console.log(li);
+            //   console.log(i);
+  
+            li.textContent = i;
+            if (i === currentPage) {
+              li.classList.add("active");
+            }
+            li.addEventListener("click", () => {
+              currentPage = i;
+              updateUI();
+            });
+            pagination.appendChild(li);
+            // console.log(pagination);
+          }
+          // 다음버튼
+          const next = document.createElement("li");
+          next.textContent = "다음";
+          next.addEventListener("click", () => {
+            if (currentPage < totalPages) {
+              currentPage++;
+              updateUI();
+            }
+          });
+          pagination.appendChild(next);
+        }
+        //   페이지션 엡데이트 화면
+        function updateUI() {
+          displayNotice();
+          document.querySelectorAll(".pagination li").forEach((li, index) => {
+            // console.log(li);
+            li.classList.toggle("active", index === currentPage);
+          });
+        }
+        fetchNotice();
+      </script>
+  </body>
+</html>
